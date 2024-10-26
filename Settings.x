@@ -145,7 +145,7 @@ NSBundle *TweakBundle() {
     NSString *titleDescription = LOC(@"TWEAK_DESC");
     if ([settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)]) {
         YTIIcon *icon = [%c(YTIIcon) new];
-        icon.iconType = 1132;
+        icon.iconType = YT_SETTINGS_HD;
         [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName icon:icon titleDescription:titleDescription headerHidden:NO];
     } else
         [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName titleDescription:titleDescription headerHidden:NO];
