@@ -26,16 +26,20 @@ static NSString *getClosestQualityLabel(NSArray <MLFormat *> *formats) {
     int targetResolution = quality / 100;
     int targetFPS = quality % 100;
     int minDiff = INT_MAX;
-    int selectedFPS = 0;
     NSString *closestQualityLabel = nil;
     for (MLFormat *format in formats) {
+        int width = [format width];
         int height = [format height];
+        int resolution = width > height ? height : width;
         int fps = [format FPS];
-        int diff = abs(height - targetResolution);
-        if (diff < minDiff || (diff == minDiff && abs(fps - targetFPS) < abs(selectedFPS - targetFPS))) {
-            minDiff = diff;
-            selectedFPS = fps;
+        int resolutionDiff = abs(resolution - targetResolution);
+        int fpsDiff = abs(fps - targetFPS);
+        int totalDiff = resolutionDiff + fpsDiff;
+        HBLogDebug(@"YCQ - Available: %@, Resolution: %d, FPS: %d, Diff: %d", [format qualityLabel], resolution, fps, totalDiff);
+        if (totalDiff < minDiff) {
+            minDiff = totalDiff;
             closestQualityLabel = [format qualityLabel];
+            HBLogDebug(@"YCQ - Selected: %@, Resolution: %d, FPS: %d", closestQualityLabel, resolution, fps);
         }
     }
     return closestQualityLabel;
