@@ -76,10 +76,7 @@ NSBundle *TweakBundle() {
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
         NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:TweakName ofType:@"bundle"];
-        if (tweakBundlePath)
-            bundle = [NSBundle bundleWithPath:tweakBundlePath];
-        else
-            bundle = [NSBundle bundleWithPath:ROOT_PATH_NS(@"/Library/Application Support/" TweakName ".bundle")];
+        bundle = [NSBundle bundleWithPath:tweakBundlePath ?: ROOT_PATH_NS(@"/Library/Application Support/" TweakName ".bundle")];
     });
     return bundle;
 }
@@ -131,7 +128,7 @@ NSBundle *TweakBundle() {
         settingItemId:0];
     [sectionItems addObject:master];
 
-    for (Scenario scenario = 0; scenario < TotalScenarios; scenario++) {
+    for (Scenario scenario = 0; scenario < TotalScenarios; ++scenario) {
         NSString *qualityLabelFormat = [NSString stringWithFormat:@"QUALITY_FOR_SCENARIO_%d", scenario];
         NSString *qualityLabel = LOC(qualityLabelFormat);
         YTSettingsSectionItem *quality = [YTSettingsSectionItemClass itemWithTitle:qualityLabel
@@ -142,7 +139,7 @@ NSBundle *TweakBundle() {
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
-                for (int i = 0; i < sizeof(qualities) / sizeof(qualities[0]); i++) {
+                for (int i = 0; i < sizeof(qualities) / sizeof(qualities[0]); ++i) {
                     int quality = qualities[i];
                     [rows addObject:[YTSettingsSectionItemClass checkmarkItemWithTitle:GetQualityString(quality) titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                         SetQuality(scenario, quality);
