@@ -117,8 +117,9 @@ NSBundle *TweakBundle() {
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
     YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
 
+    NSString *titleDescription = LOC(@"TWEAK_DESC");
     YTSettingsSectionItem *master = [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLED")
-        titleDescription:nil
+        titleDescription:titleDescription
         accessibilityIdentifier:nil
         switchOn:IsEnabled()
         switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
@@ -154,13 +155,12 @@ NSBundle *TweakBundle() {
         [sectionItems addObject:quality];
     }
 
-    NSString *titleDescription = LOC(@"TWEAK_DESC");
     if ([settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)]) {
         YTIIcon *icon = [%c(YTIIcon) new];
         icon.iconType = YT_SETTINGS_HD;
-        [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName icon:icon titleDescription:titleDescription headerHidden:NO];
+        [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName icon:icon titleDescription:nil headerHidden:NO];
     } else
-        [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName titleDescription:titleDescription headerHidden:NO];
+        [settingsViewController setSectionItems:sectionItems forCategory:TweakSection title:TweakName titleDescription:nil headerHidden:NO];
 }
 
 - (void)updateSectionForCategory:(NSUInteger)category withEntry:(id)entry {
