@@ -1,9 +1,9 @@
+#import <PSHeader/Misc.h>
 #import <YouTubeHeader/YTSettingsGroupData.h>
 #import <YouTubeHeader/YTSettingsPickerViewController.h>
 #import <YouTubeHeader/YTSettingsViewController.h>
 #import <YouTubeHeader/YTSettingsSectionItem.h>
 #import <YouTubeHeader/YTSettingsSectionItemManager.h>
-#import <rootless.h>
 #import "Scenario.h"
 
 #define TweakName @"YouChooseQuality"
@@ -76,7 +76,7 @@ NSBundle *TweakBundle() {
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
         NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:TweakName ofType:@"bundle"];
-        bundle = [NSBundle bundleWithPath:tweakBundlePath ?: ROOT_PATH_NS(@"/Library/Application Support/" TweakName ".bundle")];
+        bundle = [NSBundle bundleWithPath:tweakBundlePath ?: PS_ROOT_PATH_NS(@"/Library/Application Support/" TweakName ".bundle")];
     });
     return bundle;
 }
