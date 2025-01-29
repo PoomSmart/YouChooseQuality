@@ -130,9 +130,12 @@ NSBundle *TweakBundle() {
     [sectionItems addObject:master];
 
     for (Scenario scenario = 0; scenario < TotalScenarios; ++scenario) {
-        NSString *qualityLabelFormat = [NSString stringWithFormat:@"QUALITY_FOR_SCENARIO_%d", scenario];
-        NSString *qualityLabel = LOC(qualityLabelFormat);
-        YTSettingsSectionItem *quality = [YTSettingsSectionItemClass itemWithTitle:qualityLabel
+        NSString *titleFormat = [NSString stringWithFormat:@"QUALITY_FOR_SCENARIO_%d_SHORT", scenario];
+        NSString *titleLabel = LOC(titleFormat);
+        NSString *descriptionFormat = [NSString stringWithFormat:@"QUALITY_FOR_SCENARIO_%d", scenario];
+        NSString *descriptionLabel = LOC(descriptionFormat);
+        YTSettingsSectionItem *quality = [YTSettingsSectionItemClass itemWithTitle:titleLabel
+            titleDescription:descriptionLabel
             accessibilityIdentifier:nil
             detailTextBlock:^NSString *() {
                 int quality = GetQuality(scenario);
@@ -148,7 +151,7 @@ NSBundle *TweakBundle() {
                         return YES;
                     }]];
                 }
-                YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:qualityLabel pickerSectionTitle:nil rows:rows selectedItemIndex:GetQualityIndex(scenario) parentResponder:[self parentResponder]];
+                YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:titleLabel pickerSectionTitle:nil rows:rows selectedItemIndex:GetQualityIndex(scenario) parentResponder:[self parentResponder]];
                 [settingsViewController pushViewController:picker];
                 return YES;
             }];
