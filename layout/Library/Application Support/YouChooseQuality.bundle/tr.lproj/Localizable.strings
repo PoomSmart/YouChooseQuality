@@ -1,0 +1,12 @@
+"ENABLED" = "Etkin";
+"TWEAK_DESC" = "YouChooseQuality, her senaryo için seçtiğiniz veya buna en yakın olan video kalitesini otomatik olarak seçer.";
+"QUALITY_FOR_SCENARIO_0" = "Wi-Fi için video kalitesi";
+"QUALITY_FOR_SCENARIO_0_SHORT" = "Wi-Fi";
+"QUALITY_FOR_SCENARIO_1" = "Hücresel Veri için video kalitesi";
+"QUALITY_FOR_SCENARIO_1_SHORT" = "Hücresel";
+"QUALITY_FOR_SCENARIO_2" = "AirPlay ile Wi-Fi için video kalitesi";
+"QUALITY_FOR_SCENARIO_2_SHORT" = "AirPlay ile Wi-Fi";
+"QUALITY_FOR_SCENARIO_3" = "AirPlay ile Hücresel Veri için video kalitesi";
+"QUALITY_FOR_SCENARIO_3_SHORT" = "AirPlay ile Hücresel";
+"QUALITY_FOR_SCENARIO_4" = "Düşük Güç Modu için video kalitesi";
+"QUALITY_FOR_SCENARIO_4_SHORT" = "Düşük Güç Modu";
