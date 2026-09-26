@@ -1,6 +1,6 @@
 Package: com.ps.youchoosequality
 Name: YouChooseQuality
-Version: 1.0.9
+Version: 1.0.10
 Architecture: iphoneos-arm
 Description: Auto-select the video quality of choice in iOS YouTube app.
 Maintainer: PoomSmart
