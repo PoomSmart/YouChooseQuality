@@ -1,0 +1,17 @@
+"ENABLED" = "활성화";
+"TWEAK_DESC" = "YouChooseQuality는 각 상황별로 사용자가 설정한 값과 일치하거나 가장 가까운 동영상 화질을 자동으로 선택합니다.";
+
+"QUALITY_FOR_SCENARIO_0" = "Wi-Fi 동영상 화질";
+"QUALITY_FOR_SCENARIO_0_SHORT" = "Wi-Fi";
+
+"QUALITY_FOR_SCENARIO_1" = "셀룰러 동영상 화질";
+"QUALITY_FOR_SCENARIO_1_SHORT" = "셀룰러";
+
+"QUALITY_FOR_SCENARIO_2" = "Wi-Fi (AirPlay) 동영상 화질";
+"QUALITY_FOR_SCENARIO_2_SHORT" = "Wi-Fi (AirPlay)";
+
+"QUALITY_FOR_SCENARIO_3" = "셀룰러 (AirPlay) 동영상 화질";
+"QUALITY_FOR_SCENARIO_3_SHORT" = "셀룰러 (AirPlay)";
+
+"QUALITY_FOR_SCENARIO_4" = "저전력 모드 동영상 화질";
+"QUALITY_FOR_SCENARIO_4_SHORT" = "저전력 모드";
